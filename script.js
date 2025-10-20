@@ -79,3 +79,35 @@ function showCopyFeedback() {
         copyButton.style.borderColor = '';
     }, 2000);
 }
+
+// Función para abrir el CV en nueva pestaña
+function downloadCV() {
+    // Abrir el CV en una nueva pestaña
+    window.open('assets/CV_Gonzalo_Patiño_Almena.pdf', '_blank');
+    
+    // Mostrar feedback visual
+    showOpenFeedback();
+}
+
+// Mostrar feedback visual al abrir CV
+function showOpenFeedback() {
+    const cvCard = document.querySelector('.about-me-cv-card');
+    const originalBorder = cvCard.style.borderColor;
+    const originalBackground = cvCard.style.background;
+    
+    // Cambiar temporalmente el estilo de la tarjeta
+    cvCard.style.borderColor = 'rgba(59, 130, 246, 0.6)';
+    cvCard.style.background = 'linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(30, 64, 175, 0.2))';
+    
+    // Cambiar el texto del icono temporalmente
+    const downloadIcon = document.querySelector('.downlowad-icon');
+    const originalIcon = downloadIcon.style.backgroundColor;
+    downloadIcon.style.backgroundColor = '#3b82f6';
+    
+    // Restaurar después de 2 segundos
+    setTimeout(() => {
+        cvCard.style.borderColor = originalBorder;
+        cvCard.style.background = originalBackground;
+        downloadIcon.style.backgroundColor = originalIcon;
+    }, 2000);
+}
